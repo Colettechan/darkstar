@@ -80,6 +80,7 @@ enum MSGSERVTYPE : uint8
     MSG_CHAT_PARTY,
     MSG_CHAT_LINKSHELL,
     MSG_CHAT_YELL,
+    MSG_CHAT_UNITY,
     MSG_CHAT_SERVMES,
     MSG_PT_INVITE,
     MSG_PT_INV_RES,
@@ -92,10 +93,10 @@ enum MSGSERVTYPE : uint8
 
 typedef std::string string_t;
 
-// для персонажей в size хранится рост, 
+// для персонажей в size хранится рост,
 // для npc и монстров что-то вроде типа используемой модели
 
-struct look_t 
+struct look_t
 {
 	uint16 size;
     union {
@@ -107,7 +108,7 @@ struct look_t
 	uint16 head, body, hands, legs, feet, main, sub, ranged;
 };
 
-struct skills_t 
+struct skills_t
 {
 	union {
 		struct {
@@ -141,19 +142,19 @@ struct skills_t
 	uint8 rank[64];
 };
 
-struct keyitems_t 
+struct keyitems_t
 {
 	 uint8 keysList[320];	// таблица ключевых предметов
-	 uint8 seenList[320];	// таблица ключевых предметов, отмеченных как "увиденные" 
+	 uint8 seenList[320];	// таблица ключевых предметов, отмеченных как "увиденные"
 };
 
-struct position_t 
+struct position_t
 {
 	uint8 rotation;			// угол поворота сущности относительно своей позиции (используется 255 система, место 360°)
-	float x;			
+	float x;
 	float y;				// высота расположения сущности относительно "уровня моря"
 	float z;
-	uint16 moving;			// что-то вроде расстояния перемещения, необходимое для правильной отрисовки в клиенте количества шагов сущности 
+	uint16 moving;			// что-то вроде расстояния перемещения, необходимое для правильной отрисовки в клиенте количества шагов сущности
 };
 
 struct stats_t
@@ -161,31 +162,31 @@ struct stats_t
 	uint16 STR,DEX,VIT,AGI,INT,MND,CHR;
 };
 
-struct questlog_t 
+struct questlog_t
 {
 	uint8 current [32];
 	uint8 complete[32];
 };
 
-struct missionlog_t 
+struct missionlog_t
 {
 	uint16 current;
 	bool   complete[64];
 };
 
-struct assaultlog_t 
+struct assaultlog_t
 {
 	uint16 current;
 	bool   complete[128];
 };
 
-struct campaignlog_t 
+struct campaignlog_t
 {
 	uint16 current;
 	bool   complete[512];
 };
 
-struct nameflags_t 
+struct nameflags_t
 {
 	union {
 		struct {
@@ -199,7 +200,7 @@ struct nameflags_t
 };
 
 // информация для окна поиска
-struct search_t 
+struct search_t
 {
 	uint8 language;			// предпочтительный язык общения
 	uint8 messagetype;		// тип комментария
@@ -217,7 +218,7 @@ struct bazaar_t
 // через 4-ре байта начинается заголовк 0x49, 0x58, 0x46, 0x46 - IXFF
 // после заголовка идет предположительно тип сообщения:
 // 0x03 - положительный результат
-// 0x04 - ошибка (в случае ошибки начиная с 33 байта идет код ошибки uint16) 
+// 0x04 - ошибка (в случае ошибки начиная с 33 байта идет код ошибки uint16)
 
 #define LOBBY_A1_RESERVEPACKET(a)\
 unsigned char a[] = { \
@@ -296,7 +297,7 @@ public:
 	uint16	m_zone;
 	uint8	m_nation;
 
-	look_t	m_look;	
+	look_t	m_look;
 
 	 char_mini() {};
 	~char_mini() {};

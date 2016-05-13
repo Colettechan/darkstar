@@ -157,3 +157,10 @@ log/DSP.leaks
 #Lua Developement Tools project files
 .metadata/**
 .project
+/DSConnect-server.iobj
+/DSConnect-server.ipdb
+/DSGame-server.iobj
+/DSGame-server.ipdb
+/DSSearch-server.iobj
+/DSSearch-server.ipdb
+/win32/f.sln

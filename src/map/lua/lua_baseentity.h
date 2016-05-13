@@ -499,6 +499,7 @@ public:
     int32 setGMLevel(lua_State* L);
     int32 getGMHidden(lua_State* L);
     int32 setGMHidden(lua_State* L);
+    int32 PrintToServer(lua_State* L);
     int32 PrintToPlayer(lua_State* L);    // for sending debugging messages/command confirmations to the player's client
     // == Pathfind Methods ==
     int32 pathThrough(lua_State* L);      // walk at normal speed through the given points
